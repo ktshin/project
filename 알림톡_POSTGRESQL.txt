@@ -1,0 +1,36 @@
+CREATE TABLE allimtalk.mts_atalk_msg (
+	tran_pr varchar(16) NOT NULL, -- 메시지 Key 고유값 (시퀀스 생성 필요) 
+	tran_refkey varchar(20) NULL, -- 전환전송시 알림톡 메시지 key 값
+	tran_id varchar(20) NULL, -- 정산 구분 코드 ( 1 ~ 999 )
+	tran_sender_key varchar(40) NULL, -- 알림톡 발신 프로필 key
+	tran_tmpl_cd varchar(30) NOT NULL, -- 알림톡 템플릿 코드
+	tran_button varchar(2000) NULL, -- 버튼 제목 , 링크(최대 5개까지)
+	tran_phone varchar(15) NOT NULL, -- 수신번호(G/W 전달값)
+	tran_msg varchar(2000) NOT NULL, -- 전송 메세지(G/W 전달값) 영문 1000자 , 한글 1000자 
+	tran_date timestamp NOT NULL, -- 전송요청시간
+	tran_type int4 NOT NULL, -- 5:알림톡
+	tran_status bpchar(1) NOT NULL DEFAULT '1'::bpchar, -- 1:전송 (메시지 전송 대기 상태 ) 2:MTS 전송 완료 3:Report 수신 완료 5:Send Error 6:내부버퍼삽입완료
+	tran_senddate timestamp NULL, -- 전송시간
+	tran_reportdate timestamp NULL, -- 휴대폰이 메시지를 수신한 시간
+	tran_rsltdate timestamp NULL, -- Agent가 Report를 받은 시간
+	tran_rslt varchar(5) NULL, -- Report 결과 코드
+	tran_replace_msg varchar(2000) NOT NULL, -- 알림톡 실패시 문자로 전환전송할 내용
+	tran_subject varchar(100) NULL, -- 제목(LMS 전송시 사용)
+	tran_callback varchar(15) NOT NULL, -- 회신번호(SMS, LMS 전송시 사용)
+	tran_replace_type bpchar(1) NULL DEFAULT 'N'::bpchar, -- 전환전송 타입 S sms L lms mms N none 
+	tran_etc1 varchar(160) NULL, -- 업체측에서 사용하는 필드
+	tran_etc2 varchar(160) NULL, -- 업체측에서 사용하는 필드
+	tran_etc3 varchar(160) NULL, -- 업체측에서 사용하는 필드
+	tran_etc4 varchar(160) NULL, -- 업체측에서 사용하는 필드
+	tran_end_telco varchar(8) NULL, -- 착신망 정보
+	tran_log bpchar(1) NULL DEFAULT 'N'::bpchar, -- default ‘N’  테이블백업관련 Agent사용값
+	tran_grpseq int4 NULL, -- 웹패키지에서 사용
+	tran_title varchar(500) NULL, -- 강조문구 필드
+	tran_nation_phone varchar(5) NULL DEFAULT '82'::character varying, -- 국가코드 default 82
+	tran_supplement varchar(4000) NULL, -- 바로가기 연결
+	tran_price int8 NULL, -- 메시지 내 포함된 금액
+	tran_currency varchar(3) NULL, -- 금액 통화 단위(KRW,USD,EUR 등)
+	tran_header varchar(32) NULL,
+	tran_attachment varchar(4000) NULL,
+	CONSTRAINT "MTS_ATALK_MSG_PK" PRIMARY KEY (tran_pr)
+);
