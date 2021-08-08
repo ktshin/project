@@ -1,35 +1,35 @@
 CREATE TABLE allimtalk.mts_atalk_msg (
-	tran_pr varchar(16) NOT NULL, -- ¸Ş½ÃÁö Key °íÀ¯°ª (½ÃÄö½º »ı¼º ÇÊ¿ä) 
-	tran_refkey varchar(20) NULL, -- ÀüÈ¯Àü¼Û½Ã ¾Ë¸²Åå ¸Ş½ÃÁö key °ª
-	tran_id varchar(20) NULL, -- Á¤»ê ±¸ºĞ ÄÚµå ( 1 ~ 999 )
-	tran_sender_key varchar(40) NULL, -- ¾Ë¸²Åå ¹ß½Å ÇÁ·ÎÇÊ key
-	tran_tmpl_cd varchar(30) NOT NULL, -- ¾Ë¸²Åå ÅÛÇÃ¸´ ÄÚµå
-	tran_button varchar(2000) NULL, -- ¹öÆ° Á¦¸ñ , ¸µÅ©(ÃÖ´ë 5°³±îÁö)
-	tran_phone varchar(15) NOT NULL, -- ¼ö½Å¹øÈ£(G/W Àü´Ş°ª)
-	tran_msg varchar(2000) NOT NULL, -- Àü¼Û ¸Ş¼¼Áö(G/W Àü´Ş°ª) ¿µ¹® 1000ÀÚ , ÇÑ±Û 1000ÀÚ 
-	tran_date timestamp NOT NULL, -- Àü¼Û¿äÃ»½Ã°£
-	tran_type int4 NOT NULL, -- 5:¾Ë¸²Åå
-	tran_status bpchar(1) NOT NULL DEFAULT '1'::bpchar, -- 1:Àü¼Û (¸Ş½ÃÁö Àü¼Û ´ë±â »óÅÂ ) 2:MTS Àü¼Û ¿Ï·á 3:Report ¼ö½Å ¿Ï·á 5:Send Error 6:³»ºÎ¹öÆÛ»ğÀÔ¿Ï·á
-	tran_senddate timestamp NULL, -- Àü¼Û½Ã°£
-	tran_reportdate timestamp NULL, -- ÈŞ´ëÆùÀÌ ¸Ş½ÃÁö¸¦ ¼ö½ÅÇÑ ½Ã°£
-	tran_rsltdate timestamp NULL, -- Agent°¡ Report¸¦ ¹ŞÀº ½Ã°£
-	tran_rslt varchar(5) NULL, -- Report °á°ú ÄÚµå
-	tran_replace_msg varchar(2000) NOT NULL, -- ¾Ë¸²Åå ½ÇÆĞ½Ã ¹®ÀÚ·Î ÀüÈ¯Àü¼ÛÇÒ ³»¿ë
-	tran_subject varchar(100) NULL, -- Á¦¸ñ(LMS Àü¼Û½Ã »ç¿ë)
-	tran_callback varchar(15) NOT NULL, -- È¸½Å¹øÈ£(SMS, LMS Àü¼Û½Ã »ç¿ë)
-	tran_replace_type bpchar(1) NULL DEFAULT 'N'::bpchar, -- ÀüÈ¯Àü¼Û Å¸ÀÔ S sms L lms mms N none 
-	tran_etc1 varchar(160) NULL, -- ¾÷Ã¼Ãø¿¡¼­ »ç¿ëÇÏ´Â ÇÊµå
-	tran_etc2 varchar(160) NULL, -- ¾÷Ã¼Ãø¿¡¼­ »ç¿ëÇÏ´Â ÇÊµå
-	tran_etc3 varchar(160) NULL, -- ¾÷Ã¼Ãø¿¡¼­ »ç¿ëÇÏ´Â ÇÊµå
-	tran_etc4 varchar(160) NULL, -- ¾÷Ã¼Ãø¿¡¼­ »ç¿ëÇÏ´Â ÇÊµå
-	tran_end_telco varchar(8) NULL, -- Âø½Å¸Á Á¤º¸
-	tran_log bpchar(1) NULL DEFAULT 'N'::bpchar, -- default ¡®N¡¯  Å×ÀÌºí¹é¾÷°ü·Ã Agent»ç¿ë°ª
-	tran_grpseq int4 NULL, -- À¥ÆĞÅ°Áö¿¡¼­ »ç¿ë
-	tran_title varchar(500) NULL, -- °­Á¶¹®±¸ ÇÊµå
-	tran_nation_phone varchar(5) NULL DEFAULT '82'::character varying, -- ±¹°¡ÄÚµå default 82
-	tran_supplement varchar(4000) NULL, -- ¹Ù·Î°¡±â ¿¬°á
-	tran_price int8 NULL, -- ¸Ş½ÃÁö ³» Æ÷ÇÔµÈ ±İ¾×
-	tran_currency varchar(3) NULL, -- ±İ¾× ÅëÈ­ ´ÜÀ§(KRW,USD,EUR µî)
+	tran_pr varchar(16) NOT NULL, -- ë©”ì‹œì§€ Key ê³ ìœ ê°’ (ì‹œí€€ìŠ¤ ìƒì„± í•„ìš”) 
+	tran_refkey varchar(20) NULL, -- ì „í™˜ì „ì†¡ì‹œ ì•Œë¦¼í†¡ ë©”ì‹œì§€ key ê°’
+	tran_id varchar(20) NULL, -- ì •ì‚° êµ¬ë¶„ ì½”ë“œ ( 1 ~ 999 )
+	tran_sender_key varchar(40) NULL, -- ì•Œë¦¼í†¡ ë°œì‹  í”„ë¡œí•„ key
+	tran_tmpl_cd varchar(30) NOT NULL, -- ì•Œë¦¼í†¡ í…œí”Œë¦¿ ì½”ë“œ
+	tran_button varchar(2000) NULL, -- ë²„íŠ¼ ì œëª© , ë§í¬(ìµœëŒ€ 5ê°œê¹Œì§€)
+	tran_phone varchar(15) NOT NULL, -- ìˆ˜ì‹ ë²ˆí˜¸(G/W ì „ë‹¬ê°’)
+	tran_msg varchar(2000) NOT NULL, -- ì „ì†¡ ë©”ì„¸ì§€(G/W ì „ë‹¬ê°’) ì˜ë¬¸ 1000ì , í•œê¸€ 1000ì 
+	tran_date timestamp NOT NULL, -- ì „ì†¡ìš”ì²­ì‹œê°„
+	tran_type int4 NOT NULL, -- 5:ì•Œë¦¼í†¡
+	tran_status bpchar(1) NOT NULL DEFAULT '1'::bpchar, -- 1:ì „ì†¡ (ë©”ì‹œì§€ ì „ì†¡ ëŒ€ê¸° ìƒíƒœ ) 2:MTS ì „ì†¡ ì™„ë£Œ 3:Report ìˆ˜ì‹  ì™„ë£Œ 5:Send Error 6:ë‚´ë¶€ë²„í¼ì‚½ì…ì™„ë£Œ
+	tran_senddate timestamp NULL, -- ì „ì†¡ì‹œê°„
+	tran_reportdate timestamp NULL, -- íœ´ëŒ€í°ì´ ë©”ì‹œì§€ë¥¼ ìˆ˜ì‹ í•œ ì‹œê°„
+	tran_rsltdate timestamp NULL, -- Agentê°€ Reportë¥¼ ë°›ì€ ì‹œê°„
+	tran_rslt varchar(5) NULL, -- Report ê²°ê³¼ ì½”ë“œ
+	tran_replace_msg varchar(2000) NOT NULL, -- ì•Œë¦¼í†¡ ì‹¤íŒ¨ì‹œ ë¬¸ìë¡œ ì „í™˜ì „ì†¡í•  ë‚´ìš©
+	tran_subject varchar(100) NULL, -- ì œëª©(LMS ì „ì†¡ì‹œ ì‚¬ìš©)
+	tran_callback varchar(15) NOT NULL, -- íšŒì‹ ë²ˆí˜¸(SMS, LMS ì „ì†¡ì‹œ ì‚¬ìš©)
+	tran_replace_type bpchar(1) NULL DEFAULT 'N'::bpchar, -- ì „í™˜ì „ì†¡ íƒ€ì… S sms L lms mms N none 
+	tran_etc1 varchar(160) NULL, -- ì—…ì²´ì¸¡ì—ì„œ ì‚¬ìš©í•˜ëŠ” í•„ë“œ
+	tran_etc2 varchar(160) NULL, -- ì—…ì²´ì¸¡ì—ì„œ ì‚¬ìš©í•˜ëŠ” í•„ë“œ
+	tran_etc3 varchar(160) NULL, -- ì—…ì²´ì¸¡ì—ì„œ ì‚¬ìš©í•˜ëŠ” í•„ë“œ
+	tran_etc4 varchar(160) NULL, -- ì—…ì²´ì¸¡ì—ì„œ ì‚¬ìš©í•˜ëŠ” í•„ë“œ
+	tran_end_telco varchar(8) NULL, -- ì°©ì‹ ë§ ì •ë³´
+	tran_log bpchar(1) NULL DEFAULT 'N'::bpchar, -- default â€˜Nâ€™  í…Œì´ë¸”ë°±ì—…ê´€ë ¨ Agentì‚¬ìš©ê°’
+	tran_grpseq int4 NULL, -- ì›¹íŒ¨í‚¤ì§€ì—ì„œ ì‚¬ìš©
+	tran_title varchar(500) NULL, -- ê°•ì¡°ë¬¸êµ¬ í•„ë“œ
+	tran_nation_phone varchar(5) NULL DEFAULT '82'::character varying, -- êµ­ê°€ì½”ë“œ default 82
+	tran_supplement varchar(4000) NULL, -- ë°”ë¡œê°€ê¸° ì—°ê²°
+	tran_price int8 NULL, -- ë©”ì‹œì§€ ë‚´ í¬í•¨ëœ ê¸ˆì•¡
+	tran_currency varchar(3) NULL, -- ê¸ˆì•¡ í†µí™” ë‹¨ìœ„(KRW,USD,EUR ë“±)
 	tran_header varchar(32) NULL,
 	tran_attachment varchar(4000) NULL,
 	CONSTRAINT "MTS_ATALK_MSG_PK" PRIMARY KEY (tran_pr)
